@@ -3,6 +3,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jung-kurt/rndrec/master/LICENSE)
 [![GoDoc](https://godoc.org/github.com/jung-kurt/rndrec?status.svg)](https://godoc.org/github.com/jung-kurt/rndrec)
 [![Language](https://img.shields.io/badge/language-go-blue.svg)](https://golang.org/)
+[![Report Card](https://goreportcard.com/badge/github.com/jung-kurt/rndrec)](https://goreportcard.com/report/github.com/jung-kurt/rndrec)
 
 Package rndrec is used to randomly select records from a pool based on their
 relative weight. For example, if the relative weight of one record is 50, on
