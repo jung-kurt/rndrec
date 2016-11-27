@@ -50,7 +50,7 @@ func (r SrcType) String() string {
 
 // NewRandomRecordSource processes a list of multi-field records in which each
 // field is a string. With one exception, one column must be an integer weight.
-// In this column, specified by weightColPos, each occurence of an underscore,
+// In this column, specified by weightColPos, each occurrence of an underscore,
 // comma or period is removed and the remaining string is parsed as an integer.
 // The values in this column are relative weights; that is, a record that has a
 // weight twice that of some other record will be selected by Record() on
@@ -123,7 +123,7 @@ func NewRandomRecordSourceFromReader(r io.Reader, weightColPos int, fieldSep run
 }
 
 // NewRandomRecordSourceFromFile processes a list of multi-field records in the
-// form of a comma-separated-value file with the filename specifed by fileStr.
+// form of a comma-separated-value file with the filename specified by fileStr.
 // Each record must be separated by a newline. Each field is separated by the
 // value specified by fieldSep. For more information on the return value and
 // the other arguments, see NewRandomRecordSource().

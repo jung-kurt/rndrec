@@ -36,7 +36,7 @@ func TestSrcType_general(t *testing.T) {
 	}
 
 	// exercise Stringer method for test coverage
-	r, err = NewRandomRecordSource([][]string{
+	r, _ = NewRandomRecordSource([][]string{
 		{"a", "1"},
 		{"b", "2"},
 		{"c", "3"},
