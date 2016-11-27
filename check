@@ -1,0 +1,5 @@
+golint .
+go tool vet -all .
+gofmt -s -l .
+go test -v -bench=. -benchmem -coverprofile=coverage || exit 1
+go tool cover -html=coverage -o coverage.html || exit 2
