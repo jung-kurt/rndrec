@@ -18,11 +18,11 @@ import (
 	"strconv"
 )
 
-var reIntDelimiter = regexp.MustCompile("[,_.]")
+var reIntDelimiter = regexp.MustCompile("[,_]")
 
 type recType struct {
 	// cumulative frequency
-	cf int64
+	cf float64
 	// list of record fields
 	fields []string
 }
@@ -33,7 +33,7 @@ type SrcType struct {
 	// list of records with ascending cumulative frequency
 	list []recType
 	// maximum cumulative frequency
-	cfMax int64
+	cfMax float64
 	// random number generator
 	rand *rand.Rand
 }
@@ -41,9 +41,9 @@ type SrcType struct {
 // String implements the fmt.Stringer interface
 func (r SrcType) String() string {
 	var b bytes.Buffer
-	fmt.Fprintf(&b, "Cumulative frequency maximum: %d\n", r.cfMax)
+	fmt.Fprintf(&b, "Cumulative frequency maximum: %.2f\n", r.cfMax)
 	for j, rec := range r.list {
-		fmt.Fprintf(&b, "%2d: [%12d] %v\n", j, rec.cf, rec.fields)
+		fmt.Fprintf(&b, "%2d: [%10.2f] %v\n", j, rec.cf, rec.fields)
 	}
 	return b.String()
 }
@@ -74,7 +74,8 @@ func NewRandomRecordSource(recs [][]string, weightColPos int, seed int64) (src *
 				rec.cf = 1
 			} else if weightColPos >= 0 && weightColPos < len(fields) {
 				weight = fields[weightColPos]
-				rec.cf, err = strconv.ParseInt(reIntDelimiter.ReplaceAllString(weight, ""), 10, 64)
+				rec.cf, err = strconv.ParseFloat(reIntDelimiter.ReplaceAllString(weight, ""), 64)
+				// rec.cf, err = strconv.ParseInt(reIntDelimiter.ReplaceAllString(weight, ""), 10, 64)
 			} else {
 				err = fmt.Errorf("specified weight column (%d) is out of range", weightColPos)
 			}
@@ -143,9 +144,9 @@ func NewRandomRecordSourceFromFile(fileStr string, weightColPos int, fieldSep ru
 // will be in the form of a slice of strings taken directly from the original
 // list used to initialize the SrcType instance.
 func (r *SrcType) Record() []string {
-	var cf int64
+	var cf float64
 	var pos int
-	cf = r.rand.Int63n(r.cfMax) // 0 <= cf < r.cfMax
+	cf = r.rand.Float64() * r.cfMax // 0 <= cf < r.cfMax
 	pos = sort.Search(len(r.list), func(j int) bool {
 		return r.list[j].cf > cf
 	})

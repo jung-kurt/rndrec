@@ -34,7 +34,7 @@ r, err = NewRandomRecordSourceFromFile("continent_population.csv", 1, '|', 0)
 ```
 
 The integer argument following the filename is the zero-based column that
-contains the relative weights in integer form. Note that the commas in these
+contains the relative weights in numeric form. Note that the commas in these
 values are disregarded. The rune argument following the weight column specifies
 the field separator. All input records are assumed to be delimited with
 newlines. The final argument is the seed value for the instance's random number
@@ -59,14 +59,14 @@ for row := 0; row < 8; row++ {
 This will generate the following ouput:
 
 ```
-South America | Asia | Australia | Asia | Asia | Asia | Asia | Europe
-Asia | Africa | Europe | Asia | Europe | Europe | Asia | Asia
-Asia | Asia | Asia | Africa | Africa | Europe | Asia | Australia
-Asia | Asia | South America | Asia | Europe | North America | North America | Asia
-Asia | Asia | Asia | Asia | Africa | Asia | Africa | Asia
-Africa | Asia | Asia | Asia | North America | Asia | Asia | Africa
-Asia | North America | Africa | Asia | North America | South America | Asia | South America
-Asia | Asia | South America | Asia | North America | Africa | Asia | Asia
+South America | Asia | Asia | Africa | Asia | Asia | Asia | Asia
+North America | Asia | Asia | North America | Europe | Asia | Asia | Asia
+Europe | Africa | Europe | Europe | Asia | Asia | Asia | Asia
+Asia | Asia | Asia | Asia | Asia | Asia | Africa | Asia
+Asia | Asia | Asia | Asia | Asia | Asia | Asia | Africa
+Asia | Africa | Asia | Asia | Europe | Africa | North America | North America
+Asia | Europe | Africa | Europe | Asia | South America | Africa | Europe
+Asia | Europe | Africa | Asia | Asia | Asia | Asia | Africa
 ```
 
 ##Installation

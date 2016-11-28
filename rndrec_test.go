@@ -114,7 +114,7 @@ func ExampleSrcType_equalWeight() {
 	report(list, -1)
 	// Output:
 	// blue: 0.33
-	// green: 0.34
+	// green: 0.33
 	// red: 0.33
 }
 
@@ -139,14 +139,14 @@ func ExampleSrcType_readme() {
 		fmt.Printf("%s\n", err)
 	}
 	// Output:
-	// South America | Asia | Australia | Asia | Asia | Asia | Asia | Europe
-	// Asia | Africa | Europe | Asia | Europe | Europe | Asia | Asia
-	// Asia | Asia | Asia | Africa | Africa | Europe | Asia | Australia
-	// Asia | Asia | South America | Asia | Europe | North America | North America | Asia
-	// Asia | Asia | Asia | Asia | Africa | Asia | Africa | Asia
-	// Africa | Asia | Asia | Asia | North America | Asia | Asia | Africa
-	// Asia | North America | Africa | Asia | North America | South America | Asia | South America
-	// Asia | Asia | South America | Asia | North America | Africa | Asia | Asia
+	// South America | Asia | Asia | Africa | Asia | Asia | Asia | Asia
+	// North America | Asia | Asia | North America | Europe | Asia | Asia | Asia
+	// Europe | Africa | Europe | Europe | Asia | Asia | Asia | Asia
+	// Asia | Asia | Asia | Asia | Asia | Asia | Africa | Asia
+	// Asia | Asia | Asia | Asia | Asia | Asia | Asia | Africa
+	// Asia | Africa | Asia | Asia | Europe | Africa | North America | North America
+	// Asia | Europe | Africa | Europe | Asia | South America | Africa | Europe
+	// Asia | Europe | Africa | Asia | Asia | Asia | Asia | Africa
 }
 
 func ExampleSrcType_file() {
