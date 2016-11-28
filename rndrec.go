@@ -50,9 +50,9 @@ func (r SrcType) String() string {
 
 // NewRandomRecordSource processes a list of multi-field records in which each
 // field is a string. With one exception, one column must be an integer weight.
-// In this column, specified by weightColPos, each occurrence of an underscore,
-// comma or period is removed and the remaining string is parsed as an integer.
-// The values in this column are relative weights; that is, a record that has a
+// In this column, specified by weightColPos, each occurrence of an underscore
+// or comma is removed and the remaining string is parsed as an integer. The
+// values in this column are relative weights; that is, a record that has a
 // weight twice that of some other record will be selected by Record() on
 // average twice as often. The sum of these weights does not have to be any
 // special value. The exception to the requirement that one field be a weight
