@@ -2,6 +2,8 @@
 coverage*
 # vim swap files
 *.swp
+# download files (not revision-controlled)
+dist*
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
