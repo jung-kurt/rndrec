@@ -103,8 +103,8 @@ func main() {
 	}
 	var list = []ioType{
 		{in: "dist.all.last", out: "../data/us/name_last.csv"},
-		{in: "dist.female.first", out: "../data/us/name_female_first.csv"},
-		{in: "dist.male.first", out: "../data/us/name_male_first.csv"},
+		{in: "dist.female.first", out: "../data/us/name_first_female.csv"},
+		{in: "dist.male.first", out: "../data/us/name_first_male.csv"},
 	}
 	var rec ioType
 	var err error

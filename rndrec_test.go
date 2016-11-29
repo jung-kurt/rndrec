@@ -2,6 +2,7 @@ package rndrec
 
 import (
 	"fmt"
+	"math/rand"
 	"testing"
 )
 
@@ -186,4 +187,62 @@ func ExampleSrcType_population() {
 	// Europe: 0.11
 	// North America: 0.07
 	// South America: 0.06
+}
+
+// Generate dummy names based on 1990 US census data
+func ExampleSrcType_names() {
+	const (
+		cnLast = iota
+		cnFemale
+		cnMale
+		cnCount
+	)
+	var filenameList = [cnCount]string{
+		"data/us/name_last.csv",
+		"data/us/name_first_female.csv",
+		"data/us/name_first_male.csv",
+	}
+	var srcList [cnCount]*SrcType
+	var err error
+	var rnd *rand.Rand
+	var first, mid, last []string
+	var j, k int
+
+	for j = 0; j < cnCount && err == nil; j++ {
+		srcList[j], err = NewRandomRecordSourceFromFile(filenameList[j], 1, '|', 0)
+	}
+	if err == nil {
+		rnd = rand.New(rand.NewSource(0))
+		for j = 0; j < 16; j++ {
+			if rnd.Intn(5) < 4 {
+				k = cnFemale
+			} else {
+				k = cnMale
+			}
+			first = srcList[k].Record()
+			mid = srcList[k].Record()
+			last = srcList[cnLast].Record()
+			fmt.Printf("%s %s %s\n", first[0], mid[0][0:1], last[0])
+		}
+	}
+	if err != nil {
+		fmt.Printf("%s\n", err)
+	}
+	// Output:
+	// Kendall T Creel
+	// Earl J Cox
+	// Jasmin A Stein
+	// Yolanda L Brown
+	// Evelyn M Perkins
+	// Sharon Y Foster
+	// Lea S Carter
+	// Martha A Potts
+	// Jeannie V Ayres
+	// Veronica B Wright
+	// Harriet M Simmons
+	// Janie L Colburn
+	// Anthony P Pulliam
+	// Teresa D Coleman
+	// Florence C Sweeney
+	// Sarah B Ramirez
 }
