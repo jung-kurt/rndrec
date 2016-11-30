@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// Cover corner cases
 func TestSrcType_general(t *testing.T) {
 	var err error
 	var r *SrcType
@@ -48,6 +49,7 @@ func TestSrcType_general(t *testing.T) {
 
 }
 
+// Return a sorted slice of string keys from the specified map
 func keyList(m map[string]int) (list []string) {
 	for k := range m {
 		list = append(list, k)
@@ -79,6 +81,8 @@ func srcReport(r *SrcType, weightCol int) {
 	}
 }
 
+// Display the frequency of selected keys in the specified slice of records.
+// Each record is a slice of strings, with the first field being the key.
 func report(list [][]string, weightCol int) {
 	var r *SrcType
 	var err error
@@ -91,6 +95,7 @@ func report(list [][]string, weightCol int) {
 	}
 }
 
+// Simple example of selection from weighted records.
 func ExampleSrcType_simple() {
 	var list = [][]string{
 		{"20%", "20"},
@@ -106,6 +111,7 @@ func ExampleSrcType_simple() {
 	// 40%: 0.40
 }
 
+// Demonstrate imolicit equal weight of records
 func ExampleSrcType_equalWeight() {
 	var list = [][]string{
 		{"red"},
@@ -119,12 +125,13 @@ func ExampleSrcType_equalWeight() {
 	// red: 0.33
 }
 
+// Simple demonstration for readme file
 func ExampleSrcType_readme() {
 	var r *SrcType
 	var err error
 	var rec []string
 
-	r, err = NewRandomRecordSourceFromFile("continent_population.csv", 1, '|', 0)
+	r, err = NewRandomRecordSourceFromFile("data/continent_population.csv", 1, '|', 0)
 	if err == nil {
 		for row := 0; row < 8; row++ {
 			for col := 0; col < 8; col++ {
@@ -150,11 +157,12 @@ func ExampleSrcType_readme() {
 	// Asia | Europe | Africa | Asia | Asia | Asia | Asia | Africa
 }
 
+// Demonstrate selection of records from a file
 func ExampleSrcType_file() {
 	var r *SrcType
 	var err error
 
-	r, err = NewRandomRecordSourceFromFile("continent_population.csv", 1, '|', 0)
+	r, err = NewRandomRecordSourceFromFile("data/continent_population.csv", 1, '|', 0)
 	if err == nil {
 		srcReport(r, 1)
 	} else {
@@ -169,6 +177,7 @@ func ExampleSrcType_file() {
 	// South America: 0.06
 }
 
+// Demonstrate selection of records from a structured data source
 func ExampleSrcType_population() {
 	var list = [][]string{
 		{"Africa", "1,030,400,000"},
