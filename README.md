@@ -43,7 +43,7 @@ can be used if repeatable sequences are not desired.
 
 Call `r.Record()` to randomly retrieve weighted records:
 
-```
+```go
 for row := 0; row < 8; row++ {
 	for col := 0; col < 8; col++ {
 		if col > 0 {
