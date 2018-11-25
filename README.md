@@ -1,4 +1,4 @@
-#rndrec
+# rndrec
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jung-kurt/rndrec/master/LICENSE)
 [![GoDoc](https://godoc.org/github.com/jung-kurt/rndrec?status.svg)](https://godoc.org/github.com/jung-kurt/rndrec)
@@ -11,7 +11,7 @@ average it will be selected five times more often than a record with a relative
 weight of 10. This is useful for generating plausible data sets for testing
 purposes, for example names based on frequency or regions based on population.
 
-##Example
+## Example
 Given a file named "continent_population.csv" with the following contents,
 
 ```
@@ -76,6 +76,5 @@ To install the package on your system, run
 go get github.com/jung-kurt/rndrec
 ```
 
-##License
+## License
 rndrec is released under the MIT License.
-
