@@ -69,7 +69,7 @@ Asia | Europe | Africa | Europe | Asia | South America | Africa | Europe
 Asia | Europe | Africa | Asia | Asia | Asia | Asia | Africa
 ```
 
-##Installation
+## Installation
 To install the package on your system, run
 
 ```
